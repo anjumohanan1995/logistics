@@ -47,7 +47,7 @@ use App\Http\Controllers\NotificationController;
 
 // Auth::routes();
 require __DIR__.'/auth.php';
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // custom domain code
 Route::middleware('domain-check')->group(function () {
     Route::get('/register/{lang?}', [RegisteredUserController::class, 'create'])->name('register');
