@@ -20,13 +20,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
+
         if(Auth::check())
         {
             return redirect('dashboard');
         }
         else
         {
-
+           
                 if(admin_setting('landing_page') != 'on')
                 {
                     //dd("sdsds");

@@ -26,6 +26,7 @@ use Modules\LandingPage\Http\Controllers\PackageDetailsController;
 use Modules\LandingPage\Http\Controllers\FaqController;
 use Modules\LandingPage\Http\Controllers\MarketPlaceController;
 use Modules\LandingPage\Http\Controllers\PixelController;
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 
