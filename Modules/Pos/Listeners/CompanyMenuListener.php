@@ -13,19 +13,19 @@ class CompanyMenuListener
     {
         $module = 'Pos';
         $menu = $event->menu;
-        $menu->add([
-            'category' => 'General',
-            'title' => __('POS Dashboard'),
-            'icon' => '',
-            'name' => 'pos-dashboard',
-            'parent' => 'dashboard',
-            'order' => 40,
-            'ignore_if' => [],
-            'depend_on' => [],
-            'route' => 'pos.dashboard',
-            'module' => $module,
-            'permission' => 'pos dashboard manage'
-        ]);
+        // $menu->add([
+        //     'category' => 'General',
+        //     'title' => __('POS Dashboard'),
+        //     'icon' => '',
+        //     'name' => 'pos-dashboard',
+        //     'parent' => 'dashboard',
+        //     'order' => 40,
+        //     'ignore_if' => [],
+        //     'depend_on' => [],
+        //     'route' => 'pos.dashboard',
+        //     'module' => $module,
+        //     'permission' => 'pos dashboard manage'
+        // ]);
         $menu->add([
             'category' => 'Sales',
             'title' => __('POS'),

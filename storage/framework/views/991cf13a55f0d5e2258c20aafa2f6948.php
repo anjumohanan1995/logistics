@@ -92,11 +92,11 @@
 </head>
 <body class="<?php echo e($themeColor); ?>">
     <div class="custom-login">
-        <div class="login-bg-img">
+        <!-- <div class="login-bg-img">
             
             <img src="<?php echo e(isset($admin_settings['color_flag']) && $admin_settings['color_flag'] == 'false' ? asset('images/' . $color . '.svg') : asset('images/theme-1.svg')); ?>" class="login-bg-1">
             <img src="<?php echo e(asset('images/common.svg')); ?>" class="login-bg-2">
-        </div>
+        </div> -->
         <div class="bg-login bg-primary"></div>
         <div class="custom-login-inner">
             <header class="dash-header">
@@ -114,7 +114,7 @@
                         <div class="collapse navbar-collapse" id="navbarlogin">
                             <ul class="navbar-nav align-items-center ms-auto mb-lg-0">
 
-                                <?php echo $__env->yieldPushContent('custom_page_links'); ?>
+                               <!-- <?php echo $__env->yieldPushContent('custom_page_links'); ?> -->
                                 <?php echo $__env->yieldContent('language-bar'); ?>
                             </ul>
                         </div>
@@ -132,9 +132,9 @@
                 <div class="auth-footer">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-5">
                                 <span>
-                                    <?php if(!empty($admin_settings['footer_text'])): ?> <?php echo e($admin_settings['footer_text']); ?> <?php else: ?><?php echo e(__('Copyright')); ?> &copy; <?php echo e(config('app.name', 'WorkDo')); ?><?php endif; ?><?php echo e(date('Y')); ?>
+                                    <?php if(!empty($admin_settings['footer_text'])): ?> <?php echo e($admin_settings['footer_text']); ?> <?php else: ?><?php echo e(__('Copyright')); ?> &copy; <?php echo e(config('app.name', 'WorkDo')); ?> - <?php endif; ?><?php echo e(date('Y')); ?>
 
                                 </span>
                             </div>

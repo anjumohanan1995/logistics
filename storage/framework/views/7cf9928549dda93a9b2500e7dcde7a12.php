@@ -17,7 +17,7 @@
                     <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false"aria-expanded="false">
                         <?php if(!empty(Auth::user()->avatar)): ?>
-                        
+                            
                             <span class="theme-avtar">
                                 <img alt="#"
                                     src="<?php echo e(check_file(Auth::user()->avatar) ? get_file(Auth::user()->avatar) : ''); ?>"
@@ -78,14 +78,7 @@
                 <?php endif; // app('laratrust')->permission ?>
                 <?php if (app('laratrust')->hasPermission('workspace create')) : ?>
                     <?php if(PlanCheck('Workspace', Auth::user()->id) == true): ?>
-                        <li class="dash-h-item">
-                            <a href="#!" class="dash-head-link dropdown-toggle arrow-none me-0 cust-btn"
-                                data-url="<?php echo e(route('workspace.create')); ?>" data-ajax-popup="true"
-                                data-title="<?php echo e(__('Create New Workspace')); ?>">
-                                <i class="ti ti-circle-plus"></i>
-                                <span class="hide-mob"><?php echo e(__('Create Workspace')); ?></span>
-                            </a>
-                        </li>
+                        
                     <?php endif; ?>
                 <?php endif; // app('laratrust')->permission ?>
                 <?php if (app('laratrust')->hasPermission('workspace manage')) : ?>
@@ -125,20 +118,24 @@
                                         <?php endif; ?>
                                     </div>
                                 <?php else: ?>
-                                <?php
-                                    $route = ($workspace->is_disable == 1) ?  route('workspace.change', $workspace->id) : '#';
-                                ?>
+                                    <?php
+                                        $route =
+                                            $workspace->is_disable == 1
+                                                ? route('workspace.change', $workspace->id)
+                                                : '#';
+                                    ?>
                                     <div class="d-flex justify-content-between bd-highlight">
 
-                                    <a href="<?php echo e($route); ?>" class="dropdown-item">
-                                        <span><?php echo e($workspace->name); ?></span>
-                                        <?php if($workspace->created_by == Auth::user()->id): ?>
-                                            <span class="badge bg-dark"> <?php echo e(Auth::user()->roles->first()->name); ?></span>
-                                        <?php else: ?>
-                                            <span class="badge bg-dark"> <?php echo e(__('Shared')); ?></span>
-                                        <?php endif; ?>
-                                    </a>
-                                    <?php if($workspace->is_disable == 0): ?>
+                                        <a href="<?php echo e($route); ?>" class="dropdown-item">
+                                            <span><?php echo e($workspace->name); ?></span>
+                                            <?php if($workspace->created_by == Auth::user()->id): ?>
+                                                <span class="badge bg-dark">
+                                                    <?php echo e(Auth::user()->roles->first()->name); ?></span>
+                                            <?php else: ?>
+                                                <span class="badge bg-dark"> <?php echo e(__('Shared')); ?></span>
+                                            <?php endif; ?>
+                                        </a>
+                                        <?php if($workspace->is_disable == 0): ?>
                                             <div class="action-btn mt-2">
                                                 <i class="ti ti-lock"></i>
                                             </div>
@@ -149,10 +146,12 @@
                             <?php if(getWorkspace()->count() > 1): ?>
                                 <?php if (app('laratrust')->hasPermission('workspace delete')) : ?>
                                     <hr class="dropdown-divider" />
-                                        <a href="#!" data-url="<?php echo e(route('company.info', Auth::user()->id)); ?>" class="dropdown-item" data-ajax-popup="true" data-size="lg" data-title="<?php echo e(__('Workspace Info')); ?>">
-                                            <i class="ti ti-circle-x"></i>
-                                            <span><?php echo e(__('View')); ?></span> <br>
-                                        </a>
+                                    <a href="#!" data-url="<?php echo e(route('company.info', Auth::user()->id)); ?>"
+                                        class="dropdown-item" data-ajax-popup="true" data-size="lg"
+                                        data-title="<?php echo e(__('Workspace Info')); ?>">
+                                        <i class="ti ti-circle-x"></i>
+                                        <span><?php echo e(__('View')); ?></span> <br>
+                                    </a>
 
 
                                     <hr class="dropdown-divider" />
@@ -174,8 +173,8 @@
                 <?php endif; // app('laratrust')->permission ?>
 
                 <li class="dropdown dash-h-item drp-language">
-                    <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" aria-expanded="false">
+                    <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="ti ti-world nocolor"></i>
                         <span class="drp-text hide-mob"><?php echo e(Str::upper(getActiveLanguage())); ?></span>
                         <i class="ti ti-chevron-down drp-arrow nocolor"></i>

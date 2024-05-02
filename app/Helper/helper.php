@@ -25,18 +25,26 @@ if (!function_exists('getMenu')) {
     function getMenu()
     {
         $user = auth()->user();
-        return Cache::rememberForever(
-            'sidebar_menu_' . $user->id,
-            function () use ($user) {
+
+        // return Cache::rememberForever(
+        //     'sidebar_menu_' . $user->id,
+        //     function () use ($user) {
+
                 $role = $user->roles->first();
+              //  dd($role);
                 $menu = new \App\Classes\Menu($user);
+                //dd($menu);
                 if ($role->name == 'super admin') {
                     event(new \App\Events\SuperAdminMenuEvent($menu));
                 } else {
                     event(new \App\Events\CompanyMenuEvent($menu));
                 }
+               // dd($menu->menu);
                 $collection = collect($menu->menu);
+               // dd($menu->menu);
+                //dd($collection);
                 $grouped = $collection->groupBy('category')->toArray();
+               // dd($grouped);
 
                 $categoryIcon = categoryIcon();
                 uksort($grouped, function ($a, $b) use ($categoryIcon) {
@@ -46,8 +54,8 @@ if (!function_exists('getMenu')) {
                 });
                 return generateMenu($grouped, null);
             }
-        );
-    }
+    //     );
+    // }
 }
 // if (!function_exists('generateMenu')) {
 // function generateMenu($menuItems, $parent = null)
@@ -520,6 +528,7 @@ if (!function_exists('ActivatedModule')) {
         }
         if (!empty($user)) {
             $available_modules = array_keys(Module::getByStatus(1));
+          //  dd($available_modules);
 
             if ($user->type == 'super admin') {
                 $user_active_module = $available_modules;
@@ -534,10 +543,12 @@ if (!function_exists('ActivatedModule')) {
                         }
                     }
                 } else {
+
                     static $active_module = null;
                     if ($active_module == null) {
                         $active_module = userActiveModule::where('user_id', $user->id)->pluck('module')->toArray();
                     }
+                   // dd($active_module);
                 }
 
                 // Find the common modules

@@ -52,144 +52,144 @@ class CompanyMenuListener
             'module' => $module,
             'permission' => 'user manage'
         ]);
-        $menu->add([
-            'category' => __('General'),
-            'title' => __('Role'),
-            'icon' => '',
-            'name' => 'role',
-            'parent' => 'user-management',
-            'order' => 20,
-            'ignore_if' => [],
-            'depend_on' => [],
-            'route' => 'roles.index',
-            'module' => $module,
-            'permission' => 'roles manage'
-        ]);
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Proposal'),
-            'icon' => 'replace',
-            'name' => 'proposal',
-            'parent' => '',
-            'order' => 150,
-            'ignore_if' => [],
-            'depend_on' => ['Account','Taskly'],
-            'route' => 'proposal.index',
-            'module' => $module,
-            'permission' => 'proposal manage'
-        ]);
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Invoice'),
-            'icon' => 'file-invoice',
-            'name' => 'invoice',
-            'parent' => '',
-            'order' => 200,
-            'ignore_if' => [],
-            'depend_on' => ['Account','Taskly'],
-            'route' => 'invoice.index',
-            'module' => $module,
-        'permission' => 'invoice manage'
-        ]);
+        // $menu->add([
+        //     'category' => __('General'),
+        //     'title' => __('Role'),
+        //     'icon' => '',
+        //     'name' => 'role',
+        //     'parent' => 'user-management',
+        //     'order' => 20,
+        //     'ignore_if' => [],
+        //     'depend_on' => [],
+        //     'route' => 'roles.index',
+        //     'module' => $module,
+        //     'permission' => 'roles manage'
+        // ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Proposal'),
+        //     'icon' => 'replace',
+        //     'name' => 'proposal',
+        //     'parent' => '',
+        //     'order' => 150,
+        //     'ignore_if' => [],
+        //     'depend_on' => ['Account','Taskly'],
+        //     'route' => 'proposal.index',
+        //     'module' => $module,
+        //     'permission' => 'proposal manage'
+        // ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Invoice'),
+        //     'icon' => 'file-invoice',
+        //     'name' => 'invoice',
+        //     'parent' => '',
+        //     'order' => 200,
+        //     'ignore_if' => [],
+        //     'depend_on' => ['Account','Taskly'],
+        //     'route' => 'invoice.index',
+        //     'module' => $module,
+        // 'permission' => 'invoice manage'
+        // ]);
 
 
 
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Purchases'),
-            'icon' => 'shopping-cart',
-            'name' => 'purchases',
-            'parent' => null,
-            'order' => 250,
-            'ignore_if' => [],
-            'depend_on' => ['Account','Taskly'],
-            'route' => '',
-            'module' => $module,
-            'permission' => 'purchase manage'
-        ]);
-          $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Purchase'),
-            'icon' => '',
-            'name' => 'purchase',
-            'parent' => 'purchases',
-            'order' => 10,
-            'ignore_if' => [],
-            'depend_on' => ['Account','Taskly'],
-            'route' => 'purchases.index',
-            'module' => $module,
-            'permission' => 'purchase manage'
-        ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Purchases'),
+        //     'icon' => 'shopping-cart',
+        //     'name' => 'purchases',
+        //     'parent' => null,
+        //     'order' => 250,
+        //     'ignore_if' => [],
+        //     'depend_on' => ['Account','Taskly'],
+        //     'route' => '',
+        //     'module' => $module,
+        //     'permission' => 'purchase manage'
+        // ]);
+        //   $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Purchase'),
+        //     'icon' => '',
+        //     'name' => 'purchase',
+        //     'parent' => 'purchases',
+        //     'order' => 10,
+        //     'ignore_if' => [],
+        //     'depend_on' => ['Account','Taskly'],
+        //     'route' => 'purchases.index',
+        //     'module' => $module,
+        //     'permission' => 'purchase manage'
+        // ]);
 
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Warehouse'),
-            'icon' => '',
-            'name' => 'warehouse',
-            'parent' => 'purchases',
-            'order' => 15,
-            'ignore_if' => [],
-            'depend_on' => ['Account','Taskly'],
-            'route' => 'warehouses.index',
-            'module' => $module,
-            'permission' => 'warehouse manage'
-        ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Warehouse'),
+        //     'icon' => '',
+        //     'name' => 'warehouse',
+        //     'parent' => 'purchases',
+        //     'order' => 15,
+        //     'ignore_if' => [],
+        //     'depend_on' => ['Account','Taskly'],
+        //     'route' => 'warehouses.index',
+        //     'module' => $module,
+        //     'permission' => 'warehouse manage'
+        // ]);
 
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Transfer'),
-            'icon' => '',
-            'name' => 'transfer',
-            'parent' => 'purchases',
-            'order' => 20,
-            'ignore_if' => [],
-            'depend_on' => [],
-            'route' => 'warehouses-transfer.index',
-            'module' => $module,
-            'permission' => 'warehouse manage'
-        ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Transfer'),
+        //     'icon' => '',
+        //     'name' => 'transfer',
+        //     'parent' => 'purchases',
+        //     'order' => 20,
+        //     'ignore_if' => [],
+        //     'depend_on' => [],
+        //     'route' => 'warehouses-transfer.index',
+        //     'module' => $module,
+        //     'permission' => 'warehouse manage'
+        // ]);
 
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Report'),
-            'icon' => '',
-            'name' => 'reports',
-            'parent' => 'purchases',
-            'order' => 25,
-            'ignore_if' => [],
-            'depend_on' => ['Account','Taskly'],
-            'route' => '',
-            'module' => $module,
-            'permission' => 'report purchase'
-        ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Report'),
+        //     'icon' => '',
+        //     'name' => 'reports',
+        //     'parent' => 'purchases',
+        //     'order' => 25,
+        //     'ignore_if' => [],
+        //     'depend_on' => ['Account','Taskly'],
+        //     'route' => '',
+        //     'module' => $module,
+        //     'permission' => 'report purchase'
+        // ]);
 
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Purchase Daily/Monthly Report'),
-            'icon' => '',
-            'name' => 'purchase-monthly',
-            'parent' => 'reports',
-            'order' => 10,
-            'ignore_if' => [],
-            'depend_on' => [],
-            'route' => 'reports.daily.purchase',
-            'module' => $module,
-            'permission' => 'report purchase'
-        ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Purchase Daily/Monthly Report'),
+        //     'icon' => '',
+        //     'name' => 'purchase-monthly',
+        //     'parent' => 'reports',
+        //     'order' => 10,
+        //     'ignore_if' => [],
+        //     'depend_on' => [],
+        //     'route' => 'reports.daily.purchase',
+        //     'module' => $module,
+        //     'permission' => 'report purchase'
+        // ]);
 
-        $menu->add([
-            'category' => __('Finance'),
-            'title' => __('Warehouse Report'),
-            'icon' => '',
-            'name' => 'warehouse-report',
-            'parent' => 'reports',
-            'order' => 20,
-            'ignore_if' => [],
-            'depend_on' => [],
-            'route' => 'reports.warehouse',
-            'module' => $module,
-            'permission' => 'report warehouse'
-        ]);
+        // $menu->add([
+        //     'category' => __('Finance'),
+        //     'title' => __('Warehouse Report'),
+        //     'icon' => '',
+        //     'name' => 'warehouse-report',
+        //     'parent' => 'reports',
+        //     'order' => 20,
+        //     'ignore_if' => [],
+        //     'depend_on' => [],
+        //     'route' => 'reports.warehouse',
+        //     'module' => $module,
+        //     'permission' => 'report warehouse'
+        // ]);
 
 
         $menu->add([
@@ -204,6 +204,19 @@ class CompanyMenuListener
             'route' => 'chatify',
             'module' => $module,
             'permission' => 'user chat manage'
+        ]);
+        $menu->add([
+            'category' => 'HR',
+            'title' => __('HRM Dashboard'),
+            'icon' => '',
+            'name' => 'hrm-dashboard',
+            'parent' => 'dashboard',
+            'order' => 31,
+            'ignore_if' => [],
+            'depend_on' => [],
+            'route' => 'hrm.dashboard',
+            'module' => $module,
+            'permission' => 'hrm dashboard manage'
         ]);
         $menu->add([
             'category' => __('Settings'),

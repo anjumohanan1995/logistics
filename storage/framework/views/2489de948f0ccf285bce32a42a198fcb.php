@@ -1,5 +1,3 @@
-
-
 <footer class="dash-footer mt-5">
     <div class="footer-wrapper">
         <div class="py-1">
@@ -24,46 +22,44 @@
 
 
 <?php if(Route::currentRouteName() !== 'chatify'): ?>
-<div id="commonModal" class="modal" tabindex="-1" aria-labelledby="exampleModalLongTitle"
-    aria-modal="true" role="dialog" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="body">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="commonModalOver" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="body">
+    <div id="commonModal" class="modal" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-modal="true"
+        role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="body">
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="modal fade" id="commonModalOver" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="body">
+                </div>
+            </div>
+        </div>
+    </div>
 <?php endif; ?>
 <div class="loader-wrapper d-none">
-<span class="site-loader"> </span>
+    <span class="site-loader"> </span>
 </div>
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 99999">
-<div id="liveToast" class="toast text-white  fade" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-        <div class="toast-body"> </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-            aria-label="Close"></button>
+    <div id="liveToast" class="toast text-white  fade" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body"> </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
     </div>
-</div>
 </div>
 <!-- Required Js -->
 
@@ -87,19 +83,19 @@
 
 <script src="<?php echo e(asset('js/custom.js')); ?>"></script>
 <?php if($message = Session::get('success')): ?>
-<script>
-    toastrs('Success', '<?php echo $message; ?>', 'success');
-</script>
+    <script>
+        toastrs('Success', '<?php echo $message; ?>', 'success');
+    </script>
 <?php endif; ?>
 <?php if($message = Session::get('error')): ?>
-<script>
-    toastrs('Error', '<?php echo $message; ?>', 'error');
-</script>
+    <script>
+        toastrs('Error', '<?php echo $message; ?>', 'error');
+    </script>
 <?php endif; ?>
 <?php echo $__env->yieldPushContent('scripts'); ?>
 <?php echo $__env->make('Chatify::layouts.footerLinks', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php if(isset($admin_settings['enable_cookie']) && $admin_settings['enable_cookie'] == 'on'): ?>
-<?php echo $__env->make('layouts.cookie_consent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('layouts.cookie_consent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php endif; ?>
 </body>
 

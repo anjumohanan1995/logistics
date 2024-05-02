@@ -17,7 +17,7 @@
                     <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false"aria-expanded="false">
                         @if (!empty(Auth::user()->avatar))
-                        {{-- @dd(1,check_file(Auth::user()->avatar),get_file(Auth::user()->avatar),Auth::user()) --}}
+                            {{-- @dd(1,check_file(Auth::user()->avatar),get_file(Auth::user()->avatar),Auth::user()) --}}
                             <span class="theme-avtar">
                                 <img alt="#"
                                     src="{{ check_file(Auth::user()->avatar) ? get_file(Auth::user()->avatar) : '' }}"
@@ -76,14 +76,14 @@
                 @endpermission
                 @permission('workspace create')
                     @if (PlanCheck('Workspace', Auth::user()->id) == true)
-                        <li class="dash-h-item">
+                        {{--  <li class="dash-h-item">
                             <a href="#!" class="dash-head-link dropdown-toggle arrow-none me-0 cust-btn"
                                 data-url="{{ route('workspace.create') }}" data-ajax-popup="true"
                                 data-title="{{ __('Create New Workspace') }}">
                                 <i class="ti ti-circle-plus"></i>
                                 <span class="hide-mob">{{ __('Create Workspace') }}</span>
                             </a>
-                        </li>
+                        </li>  --}}
                     @endif
                 @endpermission
                 @permission('workspace manage')
@@ -123,20 +123,24 @@
                                         @endif
                                     </div>
                                 @else
-                                @php
-                                    $route = ($workspace->is_disable == 1) ?  route('workspace.change', $workspace->id) : '#';
-                                @endphp
+                                    @php
+                                        $route =
+                                            $workspace->is_disable == 1
+                                                ? route('workspace.change', $workspace->id)
+                                                : '#';
+                                    @endphp
                                     <div class="d-flex justify-content-between bd-highlight">
 
-                                    <a href="{{ $route }}" class="dropdown-item">
-                                        <span>{{ $workspace->name }}</span>
-                                        @if ($workspace->created_by == Auth::user()->id)
-                                            <span class="badge bg-dark"> {{ Auth::user()->roles->first()->name }}</span>
-                                        @else
-                                            <span class="badge bg-dark"> {{ __('Shared') }}</span>
-                                        @endif
-                                    </a>
-                                    @if ($workspace->is_disable == 0)
+                                        <a href="{{ $route }}" class="dropdown-item">
+                                            <span>{{ $workspace->name }}</span>
+                                            @if ($workspace->created_by == Auth::user()->id)
+                                                <span class="badge bg-dark">
+                                                    {{ Auth::user()->roles->first()->name }}</span>
+                                            @else
+                                                <span class="badge bg-dark"> {{ __('Shared') }}</span>
+                                            @endif
+                                        </a>
+                                        @if ($workspace->is_disable == 0)
                                             <div class="action-btn mt-2">
                                                 <i class="ti ti-lock"></i>
                                             </div>
@@ -147,10 +151,12 @@
                             @if (getWorkspace()->count() > 1)
                                 @permission('workspace delete')
                                     <hr class="dropdown-divider" />
-                                        <a href="#!" data-url="{{route('company.info', Auth::user()->id)}}" class="dropdown-item" data-ajax-popup="true" data-size="lg" data-title="{{__('Workspace Info')}}">
-                                            <i class="ti ti-circle-x"></i>
-                                            <span>{{ __('View') }}</span> <br>
-                                        </a>
+                                    <a href="#!" data-url="{{ route('company.info', Auth::user()->id) }}"
+                                        class="dropdown-item" data-ajax-popup="true" data-size="lg"
+                                        data-title="{{ __('Workspace Info') }}">
+                                        <i class="ti ti-circle-x"></i>
+                                        <span>{{ __('View') }}</span> <br>
+                                    </a>
 
 
                                     <hr class="dropdown-divider" />
@@ -172,8 +178,8 @@
                 @endpermission
 
                 <li class="dropdown dash-h-item drp-language">
-                    <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" aria-expanded="false">
+                    <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="ti ti-world nocolor"></i>
                         <span class="drp-text hide-mob">{{ Str::upper(getActiveLanguage()) }}</span>
                         <i class="ti ti-chevron-down drp-arrow nocolor"></i>

@@ -92,11 +92,11 @@
 </head>
 <body class="{{ $themeColor }}">
     <div class="custom-login">
-        <div class="login-bg-img">
+        <!-- <div class="login-bg-img">
             {{-- <img src="{{ asset('images/'.$themeColor.'.svg') }}" class="login-bg-1"> --}}
             <img src="{{ isset($admin_settings['color_flag']) && $admin_settings['color_flag'] == 'false' ? asset('images/' . $color . '.svg') : asset('images/theme-1.svg')  }}" class="login-bg-1">
             <img src="{{ asset('images/common.svg') }}" class="login-bg-2">
-        </div>
+        </div> -->
         <div class="bg-login bg-primary"></div>
         <div class="custom-login-inner">
             <header class="dash-header">
@@ -114,7 +114,7 @@
                         <div class="collapse navbar-collapse" id="navbarlogin">
                             <ul class="navbar-nav align-items-center ms-auto mb-lg-0">
 
-                                @stack('custom_page_links')
+                               <!-- @stack('custom_page_links') -->
                                 @yield('language-bar')
                             </ul>
                         </div>
@@ -132,9 +132,9 @@
                 <div class="auth-footer">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-5">
                                 <span>
-                                    @if (!empty($admin_settings['footer_text'])) {{$admin_settings['footer_text']}} @else{{__('Copyright')}} &copy; {{ config('app.name', 'WorkDo') }}@endif{{date('Y')}}
+                                    @if (!empty($admin_settings['footer_text'])) {{$admin_settings['footer_text']}} @else{{__('Copyright')}} &copy; {{ config('app.name', 'WorkDo') }} - @endif{{date('Y')}}
                                 </span>
                             </div>
                         </div>

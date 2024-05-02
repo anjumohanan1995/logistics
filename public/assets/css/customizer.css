@@ -310,7 +310,8 @@ File: style.css
 }
 
 .dash-sidebar.light-sidebar .dash-link .dash-micon {
-    background-color: #fff;
+    background-color: #FF9800;
+    color: #fff;
     box-shadow: -3px 4px 23px rgba(0, 0, 0, 0.1);
 }
 
@@ -320,7 +321,7 @@ File: style.css
 
 .dash-sidebar.light-sidebar .dash-link .dash-micon i,
       .dash-sidebar.light-sidebar .dash-link .dash-micon svg {
-    color: #525b69;
+    color: #ffffff;
     stroke: #525b69;
     fill: #f2f2f2;
 }
@@ -362,8 +363,10 @@ File: style.css
 
 .dash-sidebar.light-sidebar .dash-navbar > .dash-item.active > .dash-link, .dash-sidebar.light-sidebar .dash-navbar > .dash-item:focus > .dash-link, .dash-sidebar.light-sidebar .dash-navbar > .dash-item:hover > .dash-link {
     box-shadow: -6px 11px 19px rgba(0, 0, 0, 0.04);
-    background: #fff;
-    color: #333333;
+    background: #111111;
+    color: #ffffff;
+    margin-left: 0px;
+    border-radius: 0 20px 20px 0;
 }
 
 .minimenu .dash-sidebar.light-sidebar .dash-navbar > .dash-item > .dash-link {

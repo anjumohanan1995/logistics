@@ -19,7 +19,8 @@ class RoleController extends Controller
 
         if(Auth::user()->isAbleTo('roles manage'))
         {
-            $roles = Role::where('created_by', '=', creatorId())->get();
+            //$roles = Role::where('created_by', '=', creatorId())->get();
+            $roles = Role::get();
             $modules = array_merge(['General'],getModuleList());
             return view('role.index',compact('modules','roles'));
         }

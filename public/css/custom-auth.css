@@ -57,13 +57,13 @@
 }
 
 .custom-login .navbar {
-    background: var(--bs-white);
+    background: none;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    box-shadow: 0 6px 30px rgba(182, 186, 203, 0.3);
+    /* box-shadow: 0 6px 30px rgba(182, 186, 203, 0.3); */
     padding: 10px 0;
 }
 
@@ -98,20 +98,20 @@
 }
 
 .custom-login .custom-wrapper {
-    padding: 80px 0 40px;
+    padding: 80px 0 0px;
     max-width: 1170px;
     width: 100%;
     display: flex;
     align-items: center;
     flex: 1;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .custom-login .custom-wrapper .custom-row {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: left;
     z-index: 9;
 }
 
@@ -121,10 +121,10 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    max-width: 440px;
+    max-width: 540px;
     width: 100%;
-    margin-left: auto;
-    box-shadow: 0px 0px 25px 0px #0000000d;
+    /* margin-left: auto; */
+    /* box-shadow: 0px 0px 25px 0px #0000000d; */
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -238,10 +238,10 @@
 .custom-login .card {
     margin-bottom: 0;
     background-color: transparent;
-    width: 440px;
+    width: 640px;
 }
 .custom-login .custom-wrapper .card .card-body{
-    box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 10%);
+    /* box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 10%); */
     border-radius: 20px !important;
     padding: 20px;
 }
@@ -250,6 +250,7 @@
     bottom: 0;
     left: 10%;
     z-index: 1;
+    display: none;
 }
 .login-bg-2{
     position: absolute;

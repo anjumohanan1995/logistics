@@ -3,6 +3,7 @@
 document.getElementsByTagName('body')[0].setAttribute('data-dash-layout', 'tab');
 const pc_link = document.querySelector('.dash-navbar').innerHTML;
 var pc_tab_menu_list = document.querySelector('.tab-container > .tab-sidemenu > .dash-tab-link');
+console.log(pc_tab_menu_list);
 var pc_tab_link_list = document.querySelector('.tab-container > .tab-link > .navbar-content > .tab-content');
 
 if (!!document.querySelector('.tab-container > .tab-sidemenu')) {
@@ -49,7 +50,7 @@ function set_tab_menu() {
 
       }
       if (flag_hit === true) {
-        
+
         if (pc_tab_link_list) {
           var tmp_flag_count = flag_count - 1;
           if (tmp_flag_count == 0) {
@@ -115,7 +116,7 @@ function active_menu() {
         var cont = cont.parentNode;
         if (cont.classList.contains('tab-pane')) {
           var active_tab = cont.getAttribute('id');
-          
+
           const triggerEl = document.querySelector('.tab-sidemenu a[data-bs-target="#' + active_tab + '"]');
           var actTab = new bootstrap.Tab(triggerEl);
           actTab.show();
