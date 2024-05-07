@@ -6,7 +6,8 @@
         </div>
         <div class="form-group col-12 d-flex justify-content-end col-form-label">
             <input type="button" value="{{ __('Cancel') }}" class="btn btn-secondary btn-light" data-bs-dismiss="modal">
-            <button type="submit" name="import" id="import" class="btn btn-primary ms-2" disabled>{{__('Import')}}</button>
+            <button type="submit" name="import" id="import" class="btn btn-primary ms-2"
+                disabled>{{ __('Import') }}</button>
         </div>
     </div>
 </div>
@@ -48,6 +49,7 @@
             }
 
             total_selection = Object.keys(column_data).length;
+
             if (total_selection == 13) {
                 $("#import").removeAttr("disabled");
                 name = column_data.name;

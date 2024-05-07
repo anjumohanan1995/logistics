@@ -126,6 +126,10 @@
                                             <p class="text-danger d-none" id="{{ 'passport_validation' }}">
                                                 {{ __('This field is required.') }}</p>
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            {!! Form::label('passport_expiry_date', __('Passport Expiry date'), ['class' => 'form-label']) !!}<span class="text-danger pl-1">*</span>
+                                            {{ Form::date('passport_expiry_date', null, ['class' => 'form-control ', 'required' => 'required', 'autocomplete' => 'off', 'placeholder' => 'Select Passprt Expiry Date']) }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

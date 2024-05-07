@@ -27,6 +27,7 @@ class Employee extends Model
         'password',
         'passport_country',
         'passport',
+        'passport_expiry_date',
         'location_type',
         'country',
         'state',
@@ -238,7 +239,7 @@ class Employee extends Model
 
         $TotalEarning = $total_allowance + $total_commission + $total_company_contribution + $total_other_payment + $total_over_time + (!empty($employee->salary) ? $employee->salary : 0);
         $taxBrackets = TaxBracket::where('created_by', creatorId())->where('workspace', getActiveWorkSpace())->get();
-        
+
         $taxRate = 0;
         foreach ($taxBrackets as $bracket) {
             if ($TotalEarning >= $bracket['from'] && $TotalEarning <= $bracket['to'] || $TotalEarning == $bracket['fixed_amount']) {

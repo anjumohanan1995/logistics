@@ -39,19 +39,19 @@ class CompanyMenuListener
             'module' => $module,
             'permission' => 'hrm manage'
         ]);
-        // $menu->add([
-        //     'category' => 'HR',
-        //     'title' => __('Employee'),
-        //     'icon' => '',
-        //     'name' => 'employee',
-        //     'parent' => 'hrm',
-        //     'order' => 10,
-        //     'ignore_if' => [],
-        //     'depend_on' => [],
-        //     'route' => 'employee.index',
-        //     'module' => $module,
-        //     'permission' => 'employee manage'
-        // ]);
+        $menu->add([
+            'category' => 'HR',
+            'title' => __('Employee'),
+            'icon' => '',
+            'name' => 'employee',
+            'parent' => 'hrm',
+            'order' => 10,
+            'ignore_if' => [],
+            'depend_on' => [],
+            'route' => 'employee.index',
+            'module' => $module,
+            'permission' => 'employee manage'
+        ]);
         $menu->add([
             'category' => 'HR',
             'title' => __('Payroll'),

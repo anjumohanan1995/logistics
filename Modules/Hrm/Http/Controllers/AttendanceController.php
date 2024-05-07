@@ -517,7 +517,7 @@ class AttendanceController extends Controller
     public function attendance(Request $request)
     {
         $company_settings = getCompanyAllSetting();
-        
+
         $employeeId      = \Auth::user()->id;
         $todayAttendance = Attendance::where('employee_id', '=', $employeeId)->where('date', date('Y-m-d'))->first();
         $startTime  = !empty($company_settings['company_start_time']) ? $company_settings['company_start_time'] : '09:00';
@@ -695,12 +695,14 @@ class AttendanceController extends Controller
 
     public function AttendanceImportdata(Request $request)
     {
+       // dd(Auth::user());
         if (Auth::user()->isAbleTo('attendance import')) {
             session_start();
             $html = '<h3 class="text-danger text-center">Below data is not inserted</h3></br>';
             $flag = 0;
             $html .= '<table class="table table-bordered"><tr>';
             $file_data = $_SESSION['file_data'];
+          //  dd($file_data);
             $company_settings = getCompanyAllSetting();
 
             foreach ($file_data as $key => $row) {
@@ -708,12 +710,15 @@ class AttendanceController extends Controller
                 $endTime  = !empty($company_settings['company_end_time']) ? $company_settings['company_end_time'] : '18:00';
 
                 $employee = User::where('workspace_id', getActiveWorkSpace())->where('created_by', '=', creatorId())->Where('email', $row[$request->email])->emp()->first();
+
                 $attendance = null;
                 if (!empty($employee)) {
                     $attendance = Attendance::where('employee_id', '=', $employee->id)->where('workspace', getActiveWorkSpace())->where('date', '=', $row[$request->date])->first();
                 }
                 if (empty($attendance) && !empty($employee)) {
+
                     try {
+
                         $startTime  = !empty($company_settings['company_start_time']) ? $company_settings['company_start_time'] : '09:00';
                         $endTime  = !empty($company_settings['company_end_time']) ? $company_settings['company_end_time'] : '18:00';
 

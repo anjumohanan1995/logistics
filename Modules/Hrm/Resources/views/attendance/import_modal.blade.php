@@ -5,15 +5,16 @@
             </div>
         </div>
         <div class="form-group col-12 d-flex justify-content-end col-form-label">
-            <a href="#" onclick="location.reload();" class="btn btn-secondary btn-light" data-bs-dismiss="modal">{{ __('Cancel') }}</a>
-            <button type="submit" name="import" id="import" class="btn btn-primary ms-2" disabled>{{__('Import')}}</button>
+            <a href="#" onclick="location.reload();" class="btn btn-secondary btn-light"
+                data-bs-dismiss="modal">{{ __('Cancel') }}</a>
+            <button type="submit" name="import" id="import" class="btn btn-primary ms-2"
+                disabled>{{ __('Import') }}</button>
         </div>
     </div>
 </div>
 
 <script>
-    $(document).ready(function()
-    {
+    $(document).ready(function() {
         var total_selection = 0;
 
         var first_name = 0;
@@ -101,4 +102,3 @@
         });
     });
 </script>
-

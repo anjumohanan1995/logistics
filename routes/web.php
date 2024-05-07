@@ -32,6 +32,7 @@ use App\Http\Controllers\SuperAdmin\SettingsController as SuperAdminSettingsCont
 use App\Http\Controllers\WarehouseTransferController;
 use App\Http\Controllers\WorkSpaceController;
 use App\Http\Controllers\NotificationController;
+use Modules\Hrm\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -399,3 +400,4 @@ Route::get('/vendor/purchases/{id}/', [PurchaseController::class, 'purchaseLink'
 Route::get('/vend0r/bill/{id}/', [PurchaseController::class, 'invoiceLink'])->name('bill.link.copy')->middleware(['auth']);
 Route::get('purchases/pdf/{id}', [PurchaseController::class, 'purchase'])->name('purchases.pdf');
 
+Route::get('send-notification', [EmployeeController::class, 'sendNotification'])->name('sendNotification');

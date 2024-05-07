@@ -3,9 +3,8 @@
     <div class="row">
         <div class="col-md-12 mb-6">
             {{ Form::label('file', __('Download Sample Employee CSV File'), ['class' => 'col-form-label text-danger mx-1']) }}
-            @if(check_file('uploads/sample/sample_employee.csv'))
-                <a href="{{ asset('uploads/sample/sample_employee.csv') }}"
-                    class="btn btn-sm btn-primary btn-icon-only">
+            @if (check_file('uploads/sample/sample_employee.csv'))
+                <a href="{{ asset('uploads/sample/sample_employee.csv') }}" class="btn btn-sm btn-primary btn-icon-only">
                     <i class="fa fa-download"></i>
                 </a>
             @endif
@@ -25,9 +24,11 @@
 <div class="modal-footer">
     <input type="button" value="{{ __('Cancel') }}" class="btn btn-secondary btn-light" data-bs-dismiss="modal">
     <button type="submit" value="{{ __('Upload') }}" class="btn btn-primary ms-2">
-        {{__('Upload')}}
+        {{ __('Upload') }}
     </button>
-    <a href="" data-url="{{ route('employee.import.modal') }}" data-ajax-popup-over="true" title="{{ __('Create') }}" data-size="xl" data-title="{{ __('Import Employee CSV Data') }}"  class="d-none import_modal_show"></a>
+    <a href="" data-url="{{ route('employee.import.modal') }}" data-ajax-popup-over="true"
+        title="{{ __('Create') }}" data-size="xl" data-title="{{ __('Import Employee CSV dfgf') }}"
+        class="d-none import_modal_show"></a>
 </div>
 {{ Form::close() }}
 
@@ -88,7 +89,7 @@
 
                 $.each(data, function(key, value) {
                     designationDropdown.append('<option value="' + key + '">' + value +
-                    '</option>');
+                        '</option>');
                 });
             }
         });
@@ -108,12 +109,11 @@
             cache: false,
             processData: false,
             success: function(data) {
-                if (data.error != '')
-                {
-                    toastrs('Error',data.error, 'error');
+                if (data.error != '') {
+                    toastrs('Error', data.error, 'error');
                 } else {
                     $('#commonModal').modal('hide');
-                    $(".import_modal_show").trigger( "click");
+                    $(".import_modal_show").trigger("click");
                     setTimeout(function() {
                         SetData(data.output);
                     }, 700);

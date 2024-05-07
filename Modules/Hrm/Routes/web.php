@@ -78,6 +78,11 @@ Route::group(['middleware' => 'PlanModuleCheck:Hrm'], function () {
             'auth',
         ]
     );
+    Route::get('import-attendance', [AttendanceController::class, 'import'])->name('attendance.import')->middleware(
+        [
+            'auth',
+        ]
+    );
     Route::get('bulkattendance', [AttendanceController::class, 'BulkAttendance'])->name('attendance.bulkattendance')->middleware(
         [
             'auth',
@@ -270,7 +275,7 @@ Route::group(['middleware' => 'PlanModuleCheck:Hrm'], function () {
             'auth',
         ]
     );
-    
+
     // tax bracket
     Route::resource('taxbracket', TaxBracketController::class)->middleware(
         [
@@ -298,7 +303,7 @@ Route::group(['middleware' => 'PlanModuleCheck:Hrm'], function () {
             'auth',
         ]
     );
-    
+
     // Termination and Terminationtype
 
     Route::resource('terminationtype', TerminationTypeController::class)->middleware(

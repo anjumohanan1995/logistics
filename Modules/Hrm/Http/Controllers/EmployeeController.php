@@ -24,6 +24,8 @@ use Modules\Hrm\Entities\Termination;
 use Modules\Hrm\Events\CreateEmployee;
 use Modules\Hrm\Events\DestroyEmployee;
 use Modules\Hrm\Events\UpdateEmployee;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {
@@ -164,6 +166,7 @@ class EmployeeController extends Controller
                     'email' => $user->email,
                     'passport_country' => $request['passport_country'],
                     'passport' => $request['passport'],
+                    'passport_expiry_date' => $request['passport_expiry_date'],
                     'location_type' => $request['location_type'],
                     'country' => $request['country'],
                     'state' => $request['state'],
@@ -927,6 +930,25 @@ class EmployeeController extends Controller
             }
         } else {
             return redirect()->back()->with('error', 'permission Denied');
+        }
+    }
+    public function sendNotification(){
+
+        $employees = Employee::where('is_active',1)->orderBy('created_at','DESC')->get();
+
+        foreach ($employees as $employee) {
+            $email = $employee->email;
+            $expiry = $employee->passport_expiry_date;
+
+            $expiryDate = Carbon::parse($expiry);
+            $daysUntilExpiry = now()->diffInDays($expiryDate, false);
+
+            if ($daysUntilExpiry === 30) {
+                Mail::send('emails.sendmail', ['expiryDate' => $expiry], function ($message) use ($email, $expiry) {
+                    $message->to($email);
+                    $message->subject('Passport Expiry Reminder');
+                });
+            }
         }
     }
 }
