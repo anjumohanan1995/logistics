@@ -133,6 +133,7 @@ class InvoiceController extends Controller
 
     public function create($customerId = 0)
     {
+      //  dd($customerId);
         if (module_is_active('ProductService')) {
             if (Auth::user()->isAbleTo('invoice create')) {
                 $invoice_number = Invoice::invoiceNumberFormat($this->invoiceNumber());
@@ -141,10 +142,14 @@ class InvoiceController extends Controller
                 $projects = [];
                 $taxs = [];
                 if (module_is_active('Account')) {
+                  //  dd("DF");
+                  $customerId       = Crypt::decrypt($customerId);
+                  //dd($customerId);
                     if ($customerId > 0) {
-                        $temp_cm = \Modules\Account\Entities\Customer::where('id', $customerId)->first();
+                        $temp_cm = \Modules\Quotation\Entities\Quotation::where('id', $customerId)->first();
+                      //  dd($temp_cm);
                         if ($temp_cm) {
-                            $customerId = $temp_cm->user_id;
+                            $customerId = $temp_cm->customer_id;
                         } else {
                             return redirect()->back()->with('error', __('Something went wrong please try again!'));
                         }

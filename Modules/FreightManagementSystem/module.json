@@ -1,0 +1,13 @@
+{
+    "name": "FreightManagementSystem",
+    "alias": "Freight Management System",
+    "description": "",
+    "keywords": [],
+    "priority": 1185,
+    "version":1.0,
+    "providers": [
+        "Modules\\FreightManagementSystem\\Providers\\FreightManagementSystemServiceProvider",
+        "Modules\\FreightManagementSystem\\Providers\\EventServiceProvider"
+    ],
+    "files": []
+}

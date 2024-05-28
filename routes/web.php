@@ -201,7 +201,7 @@ Route::middleware(['auth','verified'])->group(function () {
     // Module Install
     Route::get('modules/list', [ModuleController::class, 'index'])->name('module.index');
     Route::get('modules/add', [ModuleController::class, 'add'])->name('module.add');
-    //Route::post('install-modules', [ModuleController::class, 'install'])->name('module.install');
+    Route::post('install-modules', [ModuleController::class, 'install'])->name('module.install');
     Route::post('remove-modules/{module}', [ModuleController::class, 'remove'])->name('module.remove');
     Route::post('modules-enable', [ModuleController::class, 'enable'])->name('module.enable');
     Route::get('cancel/add-on/{name}', [ModuleController::class, 'CancelAddOn'])->name('cancel.add.on');
